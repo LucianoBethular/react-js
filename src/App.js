@@ -1,13 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component , Fragment} from 'react';
 
-function App() {
+
+
+
+class App extends Component { 
+render (){
   return (
-    <div className="App">
-      <header className="App-header">
+    <Fragment>
+      <header className="App-heade  r">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Trabajo practico numero 1
         </p>
         <a
           className="App-link"
@@ -18,8 +21,9 @@ function App() {
           Learn React
         </a>
       </header>
-    </div>
+    </Fragment>
   );
+}
 }
 
 export default App;
