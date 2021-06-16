@@ -1,21 +1,32 @@
-import React, { Component } from 'react';
-import './ItemListConteiner.css';
-import { Message, Icon } from 'semantic-ui-react'
+import React from 'react'
+import { Image, Item, Icon, Button, Label} from 'semantic-ui-react'
+import './ItemListConteiner.css'
 
-export default class ItemListConteiner extends Component {
-    render() {
-        return (
-            <div id="sectionItems">
-                <h1>Lista de perifericos para pc</h1>
-                <Message icon color="red" size="massive">
-                    <Icon name='circle notched' loading />
-                    <Message.Content>
-                    <Message.Header>La pagina esta en mantenimiento</Message.Header>
-                    Por favor aguarde para ver el contenido de esta seccion.
-                    </Message.Content>
-                </Message>
+const paragraph = <Image src='https://react.semantic-ui.com/images/wireframe/short-paragraph.png' />
+
+const ItemListConteiner = ({name, price, stock, description, counter}) => (
+    <div className="listaItems">
+  <Item.Group relaxed >
+    <Item >
+      <Item.Image size='tiny' src='https://react.semantic-ui.com/images/wireframe/image.png' />
+
+    <Item.Content>
+        <Item.Header>{name}</Item.Header>
+        <Item.Meta>
+        <span className='price'>{price}</span>
+        </Item.Meta>
+        <Item.Description>{description}</Item.Description>
+        <Item.Extra >
+        
+        <Label >Stock: {stock} </Label>
+        </Item.Extra>
+    </Item.Content>
+    
+    {counter}
+
+    </Item>
+    </Item.Group>
+    </div>
 )
-            </div>
-        )
-    }
-}
+
+export default ItemListConteiner
