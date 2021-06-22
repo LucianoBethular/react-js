@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useEffect, useState } from 'react'
 import {ItemData} from './ItemData'
 import { Image, Item, Icon, Button, Label} from 'semantic-ui-react'
 import './ItemListConteiner.css'
@@ -6,29 +6,23 @@ import ItemCount from './ItemCount'
 
 
 
-export class ItemList extends Component {
-    constructor() {
-        super();
+function ItemList() {
+	const [items, setItems] = useState([]);
+	// console.log('data', data);
+	useEffect(() => {
+            setTimeout(() => {
+                setItems(ItemData);
+            }, 2000);
+		// setTimeout(() => {
+		// }, 2000);
+	}, []);
 
-        this.state = {
-            items: []
-        }
-    }
-
-    componentDidMount () {
-        this.setState ({items: ItemData});
-    }
-
-    render() {
         return (
-
             <div>
-        {this.state.items.map((item) => {
+        {items.map((item) => {
             return(
                 <div className="listaItems">
-
-            
-<Item.Group relaxed >
+    <Item.Group relaxed >
     <Item >
     <Item.Image size='tiny' src='https://react.semantic-ui.com/images/wireframe/image.png' />
 
@@ -55,6 +49,6 @@ export class ItemList extends Component {
             </div>
         )
     }
-}
+
 
 export default ItemList
