@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import {ItemData} from './ItemData'
-import { Image, Item, Icon, Button, Label} from 'semantic-ui-react'
+import { Image, Item, Icon, Button, Label, Divider} from 'semantic-ui-react'
 import './ItemListConteiner.css'
 import ItemCount from './ItemCount'
-
+import {Link} from 'react-router-dom';
 
 
 function ItemList() {
@@ -12,6 +12,7 @@ function ItemList() {
 	useEffect(() => {
             setTimeout(() => {
                 setItems(ItemData);
+                
             }, 2000);
 		// setTimeout(() => {
 		// }, 2000);
@@ -27,7 +28,7 @@ function ItemList() {
     <Item.Image size='tiny' src='https://react.semantic-ui.com/images/wireframe/image.png' />
 
     <Item.Content>
-        <Item.Header>{item.name}</Item.Header>
+        <Item.Header> <Link  to={`/ItemDetail/${item.id}`} className="link" color="teal">{item.name} </Link></Item.Header>
         <Item.Meta>
         <span className='price'>{item.price}</span>
         </Item.Meta>
@@ -38,10 +39,13 @@ function ItemList() {
         </Item.Extra>
     </Item.Content>
     
+    
     <ItemCount />
 
     </Item>
+    
     </Item.Group>
+    
                 </div>
             );
         })}

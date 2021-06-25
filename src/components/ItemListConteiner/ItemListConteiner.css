@@ -17,3 +17,16 @@
 item.Header {
     font-size: 2.5rem ;
 }
+
+.icono {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    
+}
+
+.icono Link {
+color: aqua;
+}

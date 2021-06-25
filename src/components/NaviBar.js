@@ -5,32 +5,55 @@ import {Link} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/css/bootstrap.css'
 import './NaviBar'
+import { Menu , Segment, Dropdown} from 'semantic-ui-react'
 
+export default class NaviBar extends Component {
 
-function NaviBar ()  {
+    state = {}
+
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+
+  render() {
+    const { activeItem } = this.state
+
         return (
             
-<div>
-<Navbar bg="dark" variant="dark" expand="lg">
-<Navbar.Brand href="#home"><CardWidget /> <Link  to="/Home" className="link">BB-Techno</Link></Navbar.Brand>
-<Navbar.Toggle aria-controls="basic-navbar-nav" />
-<Navbar.Collapse id="basic-navbar-nav">
-    <Nav className="mr-auto">
-    <Nav.Link href="#home"><Link  to="/Home" className="link">Inicio</Link></Nav.Link>
-    <Nav.Link href="#link"><Link to="/Contacto">Contacto</Link></Nav.Link>
-    <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-        <NavDropdown.Item href="#action/3.1">Teclados</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.2">Mouses</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.3">Auriculares</NavDropdown.Item>
-    </NavDropdown>
-    </Nav>
-</Navbar.Collapse>
-</Navbar>
+<div className="naviBar">
+<Segment inverted >
+        <Menu inverted pointing secondary size="huge" >
+        <Menu.Item>
+        <CardWidget />
+        
+        </Menu.Item>
+        <Menu.Item 
+        name="Inicio"
+        active={activeItem === 'Inicio'}
+        onClick={this.handleItemClick}>
+          <Link  to="/" className="link">Inicio</Link>
+            </Menu.Item>
+          <Menu.Menu inverted>
+          <Dropdown item text='Categorias' >
+            <Dropdown.Menu color="black">
+              <Dropdown.Item><Link  to="/Teclados" className="link" >Teclados</Link></Dropdown.Item>
+              <Dropdown.Item><Link  to="/Auriculares" className="link" >Auriculares</Link></Dropdown.Item>
+              <Dropdown.Item><Link  to="/Mouses" className="link" >Mouse</Link></Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+          </Menu.Menu>
+
+          <Menu.Item
+          name="Contacto"
+          active={activeItem === 'Contacto'}
+          onClick={this.handleItemClick}>
+            <Link to="/Contacto">Contacto</Link>
+            
+            </Menu.Item>
+
+        </Menu>
+      </Segment>
 </div>
 
         )
+    } 
     }
 ;
-
-
-export default NaviBar;

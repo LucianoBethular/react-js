@@ -1,10 +1,16 @@
 import React from 'react';
 import { Icon } from 'semantic-ui-react'
+import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
+import '../components/ItemListConteiner/ItemListConteiner.css'
+
 
 function CardWidget() {
     return (
-        <div>
-            <Icon color="teal" name='shopping cart' size='huge' />
+        <div className="icono">
+            <Link  to="/" className="link" color="teal">BB-Techno</Link>
+            <br />
+            
+            <Link  to="/" className="link" color="teal"><Icon color="teal" name='shopping cart' size='big' /></Link>
         </div>
     )
 }
