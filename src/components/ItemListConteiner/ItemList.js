@@ -28,7 +28,7 @@ function ItemList() {
     <Item.Image size='tiny' src='https://react.semantic-ui.com/images/wireframe/image.png' />
 
     <Item.Content>
-        <Item.Header> <Link  to={`/ItemDetail/${item.id}`} className="link" color="teal">{item.name} </Link></Item.Header>
+        <Item.Header> <Link  to={`/ItemDetail/${item.id}`} style={{color:"Teal", textDecoration:"none"}} >{item.name} </Link></Item.Header>
         <Item.Meta>
         <span className='price'>{item.price}</span>
         </Item.Meta>

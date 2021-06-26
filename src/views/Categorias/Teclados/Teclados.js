@@ -1,6 +1,5 @@
 import React from 'react'
 import ItemList from '../../../components/ItemListConteiner/ItemList'
-import {Link} from 'react-router-dom';
 import { Divider } from 'semantic-ui-react'
 
 function Teclados() {

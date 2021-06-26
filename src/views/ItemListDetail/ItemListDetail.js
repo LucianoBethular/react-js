@@ -13,7 +13,7 @@ function ItemListDetail({match}) {
         
         setDetail(ItemData)
         
-        console.log(ItemData.find(1))
+        
     }, [])
 
     return (

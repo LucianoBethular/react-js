@@ -5,7 +5,8 @@ import { Button, Divider, Form, Grid, Segment, List } from 'semantic-ui-react'
 function Contact() {
     return (
         <div>
-        <h1 style={{textAlign:'center', color:"teal", textDecoration:"underline"}}>Contacto</h1>
+                    <h1 style={{textAlign:'left', color:"teal", fontSize:"3rem"}}>Contacto</h1>
+            <Divider clearing />
         <Segment placeholder>
     <Grid columns={2} relaxed='very' stackable padded="horizontally" >
       <Grid.Column verticalAlign="middle">

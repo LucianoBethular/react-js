@@ -29,14 +29,14 @@ export default class NaviBar extends Component {
         name="Inicio"
         active={activeItem === 'Inicio'}
         onClick={this.handleItemClick}>
-          <Link  to="/" className="link">Inicio</Link>
+          <Link  to="/" className="link" style={{textDecoration:"none"}}>Inicio</Link>
             </Menu.Item>
           <Menu.Menu inverted>
           <Dropdown item text='Categorias' >
             <Dropdown.Menu color="black">
-              <Dropdown.Item><Link  to="/Teclados" className="link" >Teclados</Link></Dropdown.Item>
-              <Dropdown.Item><Link  to="/Auriculares" className="link" >Auriculares</Link></Dropdown.Item>
-              <Dropdown.Item><Link  to="/Mouses" className="link" >Mouse</Link></Dropdown.Item>
+              <Dropdown.Item><Link  to="/Teclados" className="link" style={{color:"Teal", textDecoration:"none"}}>Teclados</Link></Dropdown.Item>
+              <Dropdown.Item><Link  to="/Auriculares" className="link" style={{color:"Teal", textDecoration:"none"}}>Auriculares</Link></Dropdown.Item>
+              <Dropdown.Item><Link  to="/Mouses" className="link" style={{color:"Teal", textDecoration:"none"}}>Mouse</Link></Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
           </Menu.Menu>
@@ -45,7 +45,7 @@ export default class NaviBar extends Component {
           name="Contacto"
           active={activeItem === 'Contacto'}
           onClick={this.handleItemClick}>
-            <Link to="/Contacto">Contacto</Link>
+            <Link to="/Contacto" style={{textDecoration:"none"}}>Contacto</Link>
             
             </Menu.Item>
 
