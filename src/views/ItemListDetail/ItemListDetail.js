@@ -2,39 +2,43 @@ import React, {useEffect, useState} from 'react'
 import {ItemData} from '../../components/ItemListConteiner/ItemData'
 import { Image, Item, Icon, Button, Label} from 'semantic-ui-react'
 import ItemCount from '../../components/ItemListConteiner/ItemCount'
-import {Link} from 'react-router-dom';
+import {Link, useParams} from 'react-router-dom';
 
 function ItemListDetail({match}) {
-    const detalle = match.params.id
-    console.log(match)
-    const [detail, setDetail] = useState([]);
+    const detalle = useParams()
+    console.log(detalle)
+    const [detail, setDetail] = useState([ItemData]);
+    const ID = ItemData.find(element => element.id === detalle.id)
 
     useEffect(() => {
+        console.log(ID)
+        setDetail([ID])
         
-        setDetail(ItemData)
         
         
-    }, [])
+            
+        
+        }, [detalle])
 
     return (
         <div>
         <h1>Detalle de Producto</h1>
-        {detail.map((id) => {
+        {detail.map((item) => {
     return (
         <div>
             <Item.Group relaxed >
-        <Item key={id}>
+        <Item key={item.id}>
     <Item.Image size='tiny' src='https://react.semantic-ui.com/images/wireframe/image.png' />
 
     <Item.Content>
-        <Item.Header> {id.name} </Item.Header>
+        <Item.Header> {item.name} </Item.Header>
         <Item.Meta>
-        <span className='price'>{id.price}</span>
+        <span className='price'>{item.price}</span>
         </Item.Meta>
-        <Item.Description>{id.description}</Item.Description>
+        <Item.Description>{item.description}</Item.Description>
         <Item.Extra >
         
-        <Label >Stock: {id.stock} </Label>
+        <Label >Stock: {item.stock} </Label>
         </Item.Extra>
     </Item.Content>
     
