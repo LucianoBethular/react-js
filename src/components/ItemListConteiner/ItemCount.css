@@ -6,14 +6,20 @@
     font-size: 2rem;
     color: rgb(101, 183, 211);
     margin: 1rem;
-    height: 150px;
-    width: 150px;
-    border: 3px solid;
+    height: 180px;
+    width: 170px;
+    ;
     border-radius: 2px;
     background: white;
-    border: 3px solid rgba(0, 0, 0, 0.3);
+    text-align: center
+    ;
 }
 
 .masMenos {
-    padding: 10px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
+

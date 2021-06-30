@@ -1,0 +1,28 @@
+.detailContador {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    justify-items: center;
+    border: 2px, solid, black;
+    width: 200px;
+    height: 200px;
+
+};
+
+
+.detail {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    justify-items: center;
+
+}
+
+h1{
+    color:teal;
+
+}

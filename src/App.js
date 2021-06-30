@@ -9,7 +9,7 @@ import Contact from './views/Contact/Contact';
 import Teclados from './views/Categorias/Teclados/Teclados';
 import Mouses from './views/Categorias/Mouses/Mouses';
 import Auriculares from './views/Categorias/Auriculares/Auriculares';
-
+import Cart from './views/Cart/Cart';
 
 
 class App extends Component { 
@@ -25,6 +25,7 @@ render (){
     <Route path="/Teclados" component={Teclados}/>
     <Route path="/Auriculares" component={Auriculares}/>
     <Route path="/Mouses" component={Mouses}/>
+    <Route path="/Cart" component={Cart}/>
     </Switch> 
     <div className="items">
     

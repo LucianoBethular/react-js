@@ -13,9 +13,7 @@ function ItemList() {
             setTimeout(() => {
                 setItems(ItemData);
                 
-            }, 2000);
-		// setTimeout(() => {
-		// }, 2000);
+            }, 1000);
 	}, []);
 
         return (
