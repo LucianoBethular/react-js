@@ -1,13 +1,15 @@
-import React, {useState, useEffect } from 'react'
+import React, {useState, useEffect, useContext } from 'react'
 import './ItemCount.css'
 import { Button , Icon , Card , } from 'semantic-ui-react'
 import { ItemData } from './ItemData';
 import {Link} from 'react-router-dom';
 
-function ItemCount() {
+
+
+function ItemCount({data}) {
 
     const [count, setCount] = useState(0);
-    const stock = ItemData.find(element => element.stock)
+    console.log(data)
      
 
     function handleCounterUp (){
@@ -20,10 +22,12 @@ function ItemCount() {
         
 
 
-
+    
         return (
             <div>
                 <div className="counter-section">
+                
+                    
                 <Card>
     <Card.Content>
         <Card.Header >{count}</Card.Header>
@@ -34,22 +38,26 @@ function ItemCount() {
                     <Button onClick={handleCounterDown} color="red">−</Button>
                     <Button onClick={handleCounterUp}  color="blue">+</Button>
                 </Button.Group>
+                
                 <Button  size="normal" animated='vertical' >
-                <Button.Content hidden><Link  to="/Cart" className="link" style={{color:"Teal", textDecoration:"none"}}>Comprar</Link></Button.Content>
+                <Button.Content hidden><Link  to={`/Cart/${data}`} className="link" style={{color:"Teal", textDecoration:"none"}}>Comprar</Link></Button.Content>
                 <Button.Content visible>
                 <Icon name='shop' />
                 </Button.Content>
                 </Button>
+              
         <div className="masMenos">
         
                 </div>
+
         </div>
     </Card.Content>
     </Card>
-
                 </div>
+     
             </div>
         )
+    
     }
 
 

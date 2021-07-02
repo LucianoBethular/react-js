@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {ItemData} from './ItemData'
-import { Image, Item, Icon, Button, Label, Divider} from 'semantic-ui-react'
+import {  Item,  Label, } from 'semantic-ui-react'
 import './ItemListConteiner.css'
 import ItemCount from './ItemCount'
 import {Link} from 'react-router-dom';
@@ -38,7 +38,7 @@ function ItemList() {
     </Item.Content>
     
     
-    <ItemCount />
+    <ItemCount data={items}/>
 
     </Item>
     

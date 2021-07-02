@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { CartProvider } from './CartContext';
 import NaviBar from './components/NaviBar';
 import ItemListConteiner from './components/ItemListConteiner/ItemListConteiner'
 import './App.css';
@@ -15,6 +16,7 @@ import Cart from './views/Cart/Cart';
 class App extends Component { 
 render (){
   return (
+    <CartProvider>
     <Router>
     <div className="app">
     <NaviBar /> 
@@ -25,7 +27,7 @@ render (){
     <Route path="/Teclados" component={Teclados}/>
     <Route path="/Auriculares" component={Auriculares}/>
     <Route path="/Mouses" component={Mouses}/>
-    <Route path="/Cart" component={Cart}/>
+    <Route path="/Cart/:id" component={Cart}/>
     </Switch> 
     <div className="items">
     
@@ -33,6 +35,7 @@ render (){
     </div>
     </div>
     </Router>
+    </CartProvider>
   );
 }
 }
