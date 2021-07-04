@@ -6,10 +6,10 @@ import {Link} from 'react-router-dom';
 
 
 
-function ItemCount({data}) {
+function ItemCount({detalle}) {
 
     const [count, setCount] = useState(0);
-    console.log(data)
+    console.log(detalle)
      
 
     function handleCounterUp (){
@@ -40,7 +40,7 @@ function ItemCount({data}) {
                 </Button.Group>
                 
                 <Button  size="normal" animated='vertical' >
-                <Button.Content hidden><Link  to={`/Cart/${data}`} className="link" style={{color:"Teal", textDecoration:"none"}}>Comprar</Link></Button.Content>
+                <Button.Content hidden><Link  to={`/Cart/${detalle}`} className="link" style={{color:"Teal", textDecoration:"none"}}>Comprar</Link></Button.Content>
                 <Button.Content visible>
                 <Icon name='shop' />
                 </Button.Content>

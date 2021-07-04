@@ -54,7 +54,7 @@ function ItemListDetail() {
     )
 })}
 <div style={{display:"flex", flexDirection:"column", alignItems:"center" }}>
-<ItemCount/>
+<ItemCount data={detalle}/>
 </div>
     </div>
     )

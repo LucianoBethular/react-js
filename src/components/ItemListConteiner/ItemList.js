@@ -38,7 +38,7 @@ function ItemList() {
     </Item.Content>
     
     
-    <ItemCount data={items}/>
+    <ItemCount />
 
     </Item>
     

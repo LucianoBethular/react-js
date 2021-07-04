@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/css/bootstrap.css'
 import './NaviBar'
-import { Menu , Segment, Dropdown} from 'semantic-ui-react'
+import { Menu , Segment, Dropdown, Input} from 'semantic-ui-react'
 
 export default class NaviBar extends Component {
 
@@ -38,6 +38,7 @@ export default class NaviBar extends Component {
               <Dropdown.Item><Link  to="/Auriculares" className="link" style={{color:"Teal", textDecoration:"none"}}>Auriculares</Link></Dropdown.Item>
               <Dropdown.Item><Link  to="/Mouses" className="link" style={{color:"Teal", textDecoration:"none"}}>Mouse</Link></Dropdown.Item>
             </Dropdown.Menu>
+            
           </Dropdown>
           </Menu.Menu>
 
@@ -48,7 +49,14 @@ export default class NaviBar extends Component {
             <Link to="/Contacto" style={{textDecoration:"none"}}>Contacto</Link>
             
             </Menu.Item>
-
+            <Menu.Menu position='right'>
+            <Menu.Item>
+              <Input icon='search' placeholder='Buscar...' />
+            </Menu.Item>
+            <Menu.Item>
+            <Link  to="/Cart" className="link" style={{textDecoration:"none",  }}>Carrito:</Link>
+            </Menu.Item>
+          </Menu.Menu>
         </Menu>
       </Segment>
 </div>

@@ -27,7 +27,7 @@ render (){
     <Route path="/Teclados" component={Teclados}/>
     <Route path="/Auriculares" component={Auriculares}/>
     <Route path="/Mouses" component={Mouses}/>
-    <Route path="/Cart/:id" component={Cart}/>
+    <Route path="/Cart/" component={Cart}/>
     </Switch> 
     <div className="items">
     

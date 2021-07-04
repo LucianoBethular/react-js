@@ -4,29 +4,12 @@ import { CartContext } from '../../CartContext'
 import { ItemData } from '../../components/ItemListConteiner/ItemData'
 
 
-function Cart({match}) {
+function Cart() {
   
-  
-  const [carts, setCarts] = useContext(CartContext);
-  const ID = ItemData.find(element => element.id )
-console.log(match)
-  useEffect(() => {
-      console.log(ID)
-      setCarts([ID])
-      
-      
-      
-          
-      
-      }, [])
-  
-
     return (
       
         <div style={{display:"flex", flexDirection:"column" }}>
           
-          {carts.map((cart) => {
-            return (
             <Segment>
         
     <List divided  relaxed>
@@ -34,8 +17,8 @@ console.log(match)
       <List.Item>
       
         <List.Content>
-          <List.Header>{cart.name}</List.Header>
-          Cantidad: {cart.price}
+          <List.Header>Nombre: </List.Header>
+          Cantidad: 
         </List.Content>
          
       </List.Item>
@@ -46,8 +29,6 @@ console.log(match)
       
       
     </Segment>
- );
-})}
 
   <Button color="teal" size="huge">Terminar la Compra</Button>
  <br />
