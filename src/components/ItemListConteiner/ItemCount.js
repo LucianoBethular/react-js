@@ -3,14 +3,17 @@ import './ItemCount.css'
 import { Button , Icon , Card , } from 'semantic-ui-react'
 import { ItemData } from './ItemData';
 import {Link} from 'react-router-dom';
+import {ItemListDetailContext} from '../../views/ItemListDetail/ItemListDetailContext'
+import {CartContext} from '../../CartContext'
 
 
-
-function ItemCount({items, carts, setCarts, detalle}) {
+function ItemCount() {
 
     const [count, setCount] = useState(0);
-    console.log()
-     
+    const [detail, setDetail] = useContext(ItemListDetailContext)
+    const [carts, setCarts] = useContext(CartContext);
+    console.log(detail)
+    
 
     function handleCounterUp (){
         
@@ -21,7 +24,7 @@ function ItemCount({items, carts, setCarts, detalle}) {
             setCount(count - 1) }
         
     const addItemCart = () => {
-
+        
         
     };
 

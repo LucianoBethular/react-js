@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { CartProvider } from './CartContext';
+import { ItemListDetailProvider } from './views/ItemListDetail/ItemListDetailContext';
 import NaviBar from './components/NaviBar';
 import ItemListConteiner from './components/ItemListConteiner/ItemListConteiner'
 import './App.css';
@@ -16,6 +17,7 @@ import Cart from './views/Cart/Cart';
 class App extends Component { 
 render (){
   return (
+    <ItemListDetailProvider>
     <CartProvider>
     <Router>
     <div className="app">
@@ -36,7 +38,8 @@ render (){
     </div>
     </Router>
     </CartProvider>
-  );
+
+    </ItemListDetailProvider>  );
 }
 }
 
