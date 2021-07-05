@@ -38,7 +38,14 @@ function ItemList() {
     </Item.Content>
     
     
-    <ItemCount />
+    <ItemCount
+    key={item.id}
+    precio={item.price}
+    name= {item.name}
+    stock= {item.stock}
+    items={items}
+    
+    />
 
     </Item>
     
