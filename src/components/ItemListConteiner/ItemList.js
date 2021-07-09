@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState , useContext} from 'react'
 import {ItemData} from './ItemData'
 import {  Item,  Label, } from 'semantic-ui-react'
 import './ItemListConteiner.css'
 import ItemCount from './ItemCount'
 import {Link} from 'react-router-dom';
-
+import {CartContext} from '../../CartContext'
 
 function ItemList() {
+    const [carts, setCarts] = useContext(CartContext);
 	const [items, setItems] = useState([]);
 	// console.log('data', data);
 	useEffect(() => {
@@ -40,10 +41,11 @@ function ItemList() {
     
     <ItemCount
     key={item.id}
-    precio={item.price}
-    name= {item.name}
-    stock= {item.stock}
+    item={item}
+    carts={carts}
+    setCarts={setCarts}
     items={items}
+
     
     />
 

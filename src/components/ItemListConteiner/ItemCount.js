@@ -7,12 +7,12 @@ import {ItemListDetailContext} from '../../views/ItemListDetail/ItemListDetailCo
 import {CartContext} from '../../CartContext'
 
 
-function ItemCount() {
+function ItemCount({item}) {
 
     const [count, setCount] = useState(0);
-    const [detail, setDetail] = useContext(ItemListDetailContext)
+    const [items, setItems] = useContext(ItemListDetailContext)
     const [carts, setCarts] = useContext(CartContext);
-    console.log(detail)
+    const { name, price, stock, id } = item;
     
 
     function handleCounterUp (){
@@ -23,12 +23,11 @@ function ItemCount() {
         function handleCounterDown (){
             setCount(count - 1) }
         
-    const addItemCart = () => {
+        const addToCart = () => {
+            setItems(item) 
+            console.log(item)
+        }
         
-        
-    };
-
-    
         return (
             <div>
                 <div className="counter-section">
@@ -46,7 +45,7 @@ function ItemCount() {
                 </Button.Group>
                 
                 <Button  size="normal" animated='vertical' >
-                <Button.Content hidden><Link  to="/Cart" className="link" style={{color:"Teal", textDecoration:"none"}} onClick={() => addItemCart()}>Comprar</Link></Button.Content>
+                <Button.Content hidden><Link  to="/Cart" className="link" style={{color:"Teal", textDecoration:"none"}} onClick={() => addToCart()}>Comprar</Link></Button.Content>
                 <Button.Content visible>
                 <Icon name='shop' />
                 </Button.Content>

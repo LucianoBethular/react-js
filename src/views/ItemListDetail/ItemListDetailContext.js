@@ -2,26 +2,18 @@ import React, {useEffect, useState, createContext, useContext} from 'react'
 import {ItemData} from '../../components/ItemListConteiner/ItemData'
 import {Link, useParams} from 'react-router-dom';
 import './ItemListDetail.css';
+import {CartContext} from '../../CartContext'
 
 export const ItemListDetailContext = createContext();
 
-export function ItemListDetailProvider(props) {
-    const [detail, setDetail] = useState([ItemData]);
-    const ID = ItemData.find(element => element.id )
+
+export function ItemListDetailProvider(props, {id}) {
+    const [items, setItems] = useState([ItemData]);;
+    const item = items.filter((item) => item.id === id);
     
 
-    useEffect(() => {
-        console.log(ID)
-        setDetail([ID])
-        
-        
-        
-            
-        
-        }, [])
-
     return (
-        <ItemListDetailContext.Provider value={[detail, setDetail]}>
+        <ItemListDetailContext.Provider value={[items, setItems]}>
         {props.children}
     </ItemListDetailContext.Provider>
     )
