@@ -1,27 +1,35 @@
 import React, { useEffect, useState , useContext} from 'react'
-import {ItemData} from './ItemData'
 import {  Item,  Label, } from 'semantic-ui-react'
 import './ItemListConteiner.css'
 import ItemCount from './ItemCount'
 import {Link} from 'react-router-dom';
 import {CartContext} from '../../CartContext'
+import { db } from '../../firebase'
 
 function ItemList() {
     const [carts, setCarts] = useContext(CartContext);
 	const [items, setItems] = useState([]);
 	// console.log('data', data);
 	useEffect(() => {
-            setTimeout(() => {
-                setItems(ItemData);
-                
-            }, 1000);
+        
+        db.collection('ItemData').onSnapshot((querySnapshot) => { 
+            const docs = [];
+            querySnapshot.forEach((doc) => {
+                //console.log(doc.data());
+                //console.log(doc.id);
+                docs.push({...doc.data(), id: doc.id});
+                //console.log(docs)
+            });
+            setItems(docs);
+        })
+
 	}, []);
 
         return (
             <div>
         {items.map((item) => {
             return(
-                <div className="listaItems">
+                <div className="listaItems" key={Item.id}>
     <Item.Group relaxed >
     <Item >
     <Item.Image size='tiny' src='https://react.semantic-ui.com/images/wireframe/image.png' />

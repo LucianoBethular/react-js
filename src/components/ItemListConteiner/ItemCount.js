@@ -7,12 +7,10 @@ import {ItemListDetailContext} from '../../views/ItemListDetail/ItemListDetailCo
 import {CartContext} from '../../CartContext'
 
 
-function ItemCount({item}) {
+function ItemCount() {
 
     const [count, setCount] = useState(0);
-    const [items, setItems] = useContext(ItemListDetailContext)
-    const [carts, setCarts] = useContext(CartContext);
-    const { name, price, stock, id } = item;
+
     
 
     function handleCounterUp (){
@@ -24,8 +22,7 @@ function ItemCount({item}) {
             setCount(count - 1) }
         
         const addToCart = () => {
-            setItems(item) 
-            console.log(item)
+
         }
         
         return (

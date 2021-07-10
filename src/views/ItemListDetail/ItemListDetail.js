@@ -4,20 +4,28 @@ import { Image, Item, Icon, Button, Label} from 'semantic-ui-react'
 import ItemCount from '../../components/ItemListConteiner/ItemCount'
 import {Link, useParams} from 'react-router-dom';
 import './ItemListDetail.css';
+import {db} from '../../firebase'
+
 
 function ItemListDetail() {
     const detalle = useParams()
     console.log(detalle)
-    const [detail, setDetail] = useState([ItemData]);
-    const ID = ItemData.find(element => element.id === detalle.id)
+    const [detail, setDetail] = useState([]);
+    
 
     useEffect(() => {
-        console.log(ID)
-        setDetail([ID])
-        
-        
-        
-            
+        db.collection('ItemData').onSnapshot((querySnapshot) => { 
+            const docs = [];
+            querySnapshot.forEach((doc) => {
+                //console.log(doc.data());
+                //console.log(doc.id);
+                docs.push({...doc.data(), id: doc.id});
+                const ID = docs.forEach(doc => doc.id === detalle)
+                console.log(ID)
+            });
+            ;
+            setDetail(docs);
+        })
         
         }, [detalle])
 
