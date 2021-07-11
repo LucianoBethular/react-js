@@ -9,19 +9,22 @@ import {db} from '../../firebase'
 
 function ItemListDetail() {
     const detalle = useParams()
-    console.log(detalle)
+    
     const [detail, setDetail] = useState([]);
     
 
     useEffect(() => {
-        db.collection('ItemData').onSnapshot((querySnapshot) => { 
+        db.collection('ItemData').onSnapshot((querySnapshot,) => { 
             const docs = [];
             querySnapshot.forEach((doc) => {
                 //console.log(doc.data());
                 //console.log(doc.id);
-                docs.push({...doc.data(), id: doc.id});
-                const ID = docs.forEach(doc => doc.id === detalle)
-                console.log(ID)
+                //console.log(`${doc.id} === ${doc.data().name}` )
+                if (doc.id === detalle.id) {
+                docs.push(doc.data());
+                
+                }
+                
             });
             ;
             setDetail(docs);

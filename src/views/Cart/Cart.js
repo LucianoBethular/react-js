@@ -4,9 +4,9 @@ import { CartContext } from '../../CartContext'
 import { ItemData } from '../../components/ItemListConteiner/ItemData'
 
 
-function Cart() {
+function Cart({count}) {
   
-  const [carts, setCarts] = useState([false])
+  const [carts, setCarts] = useContext(CartContext)
 
   useEffect(() => {
 
@@ -16,35 +16,43 @@ function Cart() {
     return (
       
         <div style={{display:"flex", flexDirection:"column" }}>
-        {carts.length === 0 ?  
-            <Segment>
+          
+            <div style={{display:"flex", flexDirection:"column" }}>
+ 
         
-    <List divided  relaxed>
-    
-      <List.Item>
-      
-        <List.Content>
-          <List.Header>Producto: </List.Header>
-          Cantidad: 
-          <br />
-          Precio:
-        </List.Content>
-        
-      </List.Item>
+        <Segment>
+        {carts.map((item) => {
+          return(
+<List divided  relaxed size='big'>
+
+  <List.Item >
   
+    <List.Content>
+      <List.Header>Producto: {item.name} </List.Header>
+      Cantidad: {count}
+      <br />
+      Precio: {item.price}
+    </List.Content>
     
-      
-    </List>
-      
-      
-    </Segment>
-: <h2>No hay productos en el carrito</h2>}
-    <h2>Total:</h2>
+  </List.Item>
 
-  <Button color="teal" size="huge">Terminar la Compra</Button>
- <br />
-  <Button color="teal" size="huge">Agregar mas productos</Button>
 
+  
+</List>
+  )} )  } 
+  
+</Segment>
+
+<h2>Total:</h2>
+
+<Button color="teal" size="huge">Terminar la Compra</Button>
+<br />
+<Button color="teal" size="huge">Agregar mas productos</Button>
+
+
+            </div>
+           
+        
         </div>
       
     )

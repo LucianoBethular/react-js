@@ -2,16 +2,18 @@ import React, {useState, useEffect, useContext } from 'react'
 import './ItemCount.css'
 import { Button , Icon , Card , } from 'semantic-ui-react'
 import { ItemData } from './ItemData';
-import {Link} from 'react-router-dom';
+import {Link, useParams} from 'react-router-dom';
 import {ItemListDetailContext} from '../../views/ItemListDetail/ItemListDetailContext'
 import {CartContext} from '../../CartContext'
+import {db} from '../../firebase'
 
 
 function ItemCount() {
 
     const [count, setCount] = useState(0);
-
-    
+    const [carts, setCarts] = useContext(CartContext)
+    const [detail, setDetail] = useContext(ItemListDetailContext)
+    const detalle = useParams();
 
     function handleCounterUp (){
         
@@ -22,7 +24,22 @@ function ItemCount() {
             setCount(count - 1) }
         
         const addToCart = () => {
-
+    
+                db.collection('ItemData').onSnapshot((querySnapshot) => { 
+                    const docs = [];
+                    querySnapshot.forEach((doc) => {
+                        //console.log(doc.data());
+                        //console.log(doc.id);
+                        if (doc.id === detalle.id) {
+                            docs.push(doc.data());
+                            }
+                            
+                    });
+                    setCarts(docs);
+                    
+                })
+        
+            
         }
         
         return (

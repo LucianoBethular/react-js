@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useContext } from 'react'
 import {Navbar, NavDropdown, Nav} from 'react-bootstrap';
 import CardWidget from './CardWidget'
 import {Link} from 'react-router-dom';
@@ -6,15 +6,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/css/bootstrap.css'
 import './NaviBar'
 import { Menu , Segment, Dropdown, Input} from 'semantic-ui-react'
+import {CartContext} from '../CartContext'
 
-export default class NaviBar extends Component {
 
-    state = {}
-
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
-
-  render() {
-    const { activeItem } = this.state
+export default function NaviBar() {
+  const [carts, setCarts] = useContext(CartContext)
 
         return (
             
@@ -27,8 +23,7 @@ export default class NaviBar extends Component {
         </Menu.Item>
         <Menu.Item 
         name="Inicio"
-        active={activeItem === 'Inicio'}
-        onClick={this.handleItemClick}>
+        >
           <Link  to="/" className="link" style={{textDecoration:"none"}}>Inicio</Link>
             </Menu.Item>
           <Menu.Menu inverted>
@@ -44,8 +39,7 @@ export default class NaviBar extends Component {
 
           <Menu.Item
           name="Contacto"
-          active={activeItem === 'Contacto'}
-          onClick={this.handleItemClick}>
+          >
             <Link to="/Contacto" style={{textDecoration:"none"}}>Contacto</Link>
             
             </Menu.Item>
@@ -54,7 +48,7 @@ export default class NaviBar extends Component {
               <Input icon='search' placeholder='Buscar...' />
             </Menu.Item>
             <Menu.Item>
-            <Link  to="/Cart" className="link" style={{textDecoration:"none",  }}>Carrito:</Link>
+            <Link  to="/Cart" className="link" style={{textDecoration:"none",  }}>Carrito: {carts.length} Items </Link>
             </Menu.Item>
           </Menu.Menu>
         </Menu>
@@ -63,5 +57,5 @@ export default class NaviBar extends Component {
 
         )
     } 
-    }
+    
 ;
