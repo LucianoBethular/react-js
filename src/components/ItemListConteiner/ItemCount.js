@@ -8,7 +8,7 @@ import {CartContext} from '../../CartContext'
 import {db} from '../../firebase'
 
 
-function ItemCount() {
+function ItemCount(doc) {
 
     const [count, setCount] = useState(0);
     const [carts, setCarts] = useContext(CartContext)
@@ -23,22 +23,31 @@ function ItemCount() {
         function handleCounterDown (){
             setCount(count - 1) }
         
-        const addToCart = () => {
-    
+        const addToCart = (id) => {
+            
                 db.collection('ItemData').onSnapshot((querySnapshot) => { 
                     const docs = [];
                     querySnapshot.forEach((doc) => {
                         //console.log(doc.data());
                         //console.log(doc.id);
-                        if (doc.id === detalle.id) {
-                            docs.push(doc.data());
-                            }
+                        
+                        docs.push(doc.data());
+                            
+                            
                             
                     });
-                    setCarts(docs);
+                    
+                    const item = docs.filter((doc) => doc.id === detalle.id);
+                    console.log(detalle)
+                    console.log(doc.id)
+                    console.log(item);
+                    setCarts([...carts, {item}]);
+                
+                    
+                    
                     
                 })
-        
+                
             
         }
         
@@ -59,7 +68,7 @@ function ItemCount() {
                 </Button.Group>
                 
                 <Button  size="normal" animated='vertical' >
-                <Button.Content hidden><Link  to="/Cart" className="link" style={{color:"Teal", textDecoration:"none"}} onClick={() => addToCart()}>Comprar</Link></Button.Content>
+                <Button.Content hidden><Link  to="/Cart" className="link" style={{color:"Teal", textDecoration:"none"}} onClick={() => addToCart(doc.id)}>Comprar</Link></Button.Content>
                 <Button.Content visible>
                 <Icon name='shop' />
                 </Button.Content>
